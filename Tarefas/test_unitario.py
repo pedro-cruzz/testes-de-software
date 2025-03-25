@@ -1,50 +1,53 @@
-import pytest
-from to_do_list import Tarefa, GerenciadorTarefas
+import unittest
+from to_do_list import Tarefa , GerenciadorTarefas
 
-def test_criar_tarefa():
-    tarefa = Tarefa("Estudar Python")
-    assert tarefa.descricao == "Estudar Python"
-    assert tarefa.concluida is False
+class TestTarefa(unittest.TestCase):
+    def test_criacao_tarefa(self):
+        tarefa = Tarefa("Estudar Python")
+        self.assertEqual(tarefa.descricao, "Estudar Python")  # Verifica se a descrição está correta
+        self.assertFalse(tarefa.concluida)  # Verifica se a tarefa começa como não concluída
 
-def test_marcar_como_concluida():
-    tarefa = Tarefa("Fazer compras")
-    tarefa.marcar_como_concluida()
-    assert tarefa.concluida is True
+    def test_marcar_como_concluida(self):
+        tarefa = Tarefa("Fazer compras")
+        tarefa.marcar_como_concluida()
+        self.assertTrue(tarefa.concluida)  # Verifica se a tarefa foi marcada como concluída
 
-def test_str_tarefa():
-    tarefa = Tarefa("Ir à academia")
-    assert str(tarefa) == "Tarefa: Ir à academia | Status: Pendente"
-    tarefa.marcar_como_concluida()
-    assert str(tarefa) == "Tarefa: Ir à academia | Status: Concluída"
+    def test_str(self):
+        tarefa = Tarefa("Ler um livro")
+        self.assertEqual(str(tarefa), "Tarefa: Ler um livro | Status: Pendente")  # Verifica o retorno do __str__
+        tarefa.marcar_como_concluida()
+        self.assertEqual(str(tarefa), "Tarefa: Ler um livro | Status: Concluída")  # Verifica se o status é alterado
 
-def test_adicionar_tarefa():
-    gerenciador = GerenciadorTarefas()
-    gerenciador.adicionar_tarefa("Comprar leite")
-    assert len(gerenciador.tarefas) == 1
-    assert gerenciador.tarefas[0].descricao == "Comprar leite"
+class TestGerenciadorTarefas(unittest.TestCase):
+    def setUp(self):
+        # Inicializa o GerenciadorTarefas antes de cada teste
+        self.gerenciador = GerenciadorTarefas()
 
-def test_remover_tarefa():
-    gerenciador = GerenciadorTarefas()
-    gerenciador.adicionar_tarefa("Ir ao dentista")
-    gerenciador.remover_tarefa(0)
-    assert len(gerenciador.tarefas) == 0
+    def test_adicionar_tarefa(self):
+        self.gerenciador.adicionar_tarefa("Ler um livro")
+        self.assertEqual(len(self.gerenciador.tarefas), 1)  # Verifica se a tarefa foi adicionada
+        self.assertEqual(self.gerenciador.tarefas[0].descricao, "Ler um livro")  # Verifica a descrição da tarefa
 
-def test_marcar_tarefa_concluida():
-    gerenciador = GerenciadorTarefas()
-    gerenciador.adicionar_tarefa("Ler um livro")
-    gerenciador.marcar_tarefa_concluida(0)
-    assert gerenciador.tarefas[0].concluida is True
+    def test_remover_tarefa(self):
+        self.gerenciador.adicionar_tarefa("Fazer compras")
+        self.gerenciador.remover_tarefa(0)
+        self.assertEqual(len(self.gerenciador.tarefas), 0)  # Verifica se a tarefa foi removida
 
-def test_listar_tarefas():
-    gerenciador = GerenciadorTarefas()
-    gerenciador.adicionar_tarefa("Fazer exercícios")
-    assert len(gerenciador.listar_tarefas()) == 1
+    def test_marcar_tarefa_concluida(self):
+        self.gerenciador.adicionar_tarefa("Estudar matemática")
+        self.gerenciador.marcar_tarefa_concluida(0)
+        self.assertTrue(self.gerenciador.tarefas[0].concluida)  # Verifica se a tarefa foi marcada como concluída
 
-def test_listar_tarefas_pendentes():
-    gerenciador = GerenciadorTarefas()
-    gerenciador.adicionar_tarefa("Meditar")
-    gerenciador.adicionar_tarefa("Praticar violão")
-    gerenciador.marcar_tarefa_concluida(0)
-    tarefas_pendentes = gerenciador.listar_tarefas_pendentes()
-    assert len(tarefas_pendentes) == 1
-    assert tarefas_pendentes[0].descricao == "Praticar violão"
+    def test_listar_tarefas(self):
+        self.gerenciador.adicionar_tarefa("Ir ao mercado")
+        tarefas = self.gerenciador.listar_tarefas()
+        self.assertEqual(len(tarefas), 1)  # Verifica se a lista de tarefas contém 1 tarefa
+        self.assertEqual(tarefas[0].descricao, "Ir ao mercado")  # Verifica se a tarefa na lista é a correta
+
+    def test_listar_tarefas_pendentes(self):
+        self.gerenciador.adicionar_tarefa("Estudar física")
+        self.gerenciador.adicionar_tarefa("Ler um artigo")
+        self.gerenciador.marcar_tarefa_concluida(0)
+        pendentes = self.gerenciador.listar_tarefas_pendentes()
+        self.assertEqual(len(pendentes), 1)  # Verifica se restou 1 tarefa pendente
+        self.assertEqual(pendentes[0].descricao, "Ler um artigo")  # Verifica se a tarefa pendente é a correta

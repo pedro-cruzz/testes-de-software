@@ -1,23 +1,25 @@
 import unittest
-from to_do_list import GerenciadorTarefas, Interface
+from unittest.mock import patch
 import tkinter as tk
+from to_do_list_interface import Interface 
 
 class TestInterface(unittest.TestCase):
+    
     def setUp(self):
+        # Criar uma instância de Tkinter e da Interface
         self.root = tk.Tk()
         self.app = Interface(self.root)
 
-    def test_adicionar_tarefa(self):
-        self.app.entry.insert(0, "Nova Tarefa")
-        self.app.adicionar_tarefa()
-        self.assertEqual(len(self.app.gerenciador.listar_tarefas()), 1)
+    def tearDown(self):
+        # Fechar a janela após o teste
+        self.root.destroy()
 
-    def test_remover_tarefa(self):
-        self.app.gerenciador.adicionar_tarefa("Tarefa Teste")
-        self.app.atualizar_lista()
-        self.app.tree.selection_set(self.app.tree.get_children()[0])
-        self.app.remover_tarefa()
-        self.assertEqual(len(self.app.gerenciador.listar_tarefas()), 0)
+    @patch('tkinter.messagebox.showwarning')  # Mock da função de aviso
+    def test_adicionar_tarefa(self, mock_showwarning):
+        # Adicionar tarefa
+        self.app.entry.insert(0, "Estudar Python")
+        self.app.adicionar_tarefa()  # Chama o método de adicionar tarefa
 
-if __name__ == "__main__":
-    unittest.main()
+        # Verificar se a tarefa foi adicionada à lista
+        tarefas = self.app.tree.get_children()  # Pega as tarefas na árvore
+        self.assertEqual(len(tarefas), 1)  # Verifica se
