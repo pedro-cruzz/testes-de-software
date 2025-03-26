@@ -130,14 +130,14 @@ Responsável: Equipe de QA
 ### 4.1 - Ambiente de teste - Software e Hardware
 
 - Código em Python, utilizando local Storage
-- Ferramentas: Pytest, tkinker, Io, Unittest
+- Ferramentas: Pytest, tkinker, Io, Time
 
 ### 4.2 - Ferramenta de teste
 
 - Pytest para testes em geral
-- Unittest para testes unitários
 - tkinker para simular uma interface
 - Io para gerar um input de string
+- Time para testar o desempenho
 
 ## 5 - Cronograma
 
