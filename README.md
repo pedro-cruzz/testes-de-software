@@ -2,7 +2,7 @@
 
 [link apresentação](https://www.canva.com/design/DAGiTmUD5yU/0-OvjAHFpY2jjmbdgezwVA/edit?utm_content=DAGiTmUD5yU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-**Sistema de Gerenciamento de Investimentos**
+**Organiza+ | Gerenciador de tarefas**
 
 *Versão 1.0*
 
@@ -10,7 +10,7 @@
 
    Data    | Versão |    Descrição   | Autor(a)
 -----------|--------|----------------|-----------------
-dd/mm/aaaa |  1.0   | Release inicial | [Seu Nome]
+27/03/2025 |  1.0   | Release inicial | Pedro, Danyllo, Matheus, Davi, Higor, Flávio, Gabriel, Igor
 
 
 ## 1 - Introdução
@@ -30,44 +30,44 @@ Com esse documento, será possível:
 
 Identificador do caso de uso | Nome do caso de uso
 -----------------------------|---------------------
-UC1 | Cadastro de investimentos
-UC2 | Consulta de investimentos
-UC3 | Atualização de valores
-UC4 | Relatórios de rentabilidade
-UC5 | Exclusão de investimento
+UC1 | Cadastrar tarefas
+UC2 | Escluir tarefas
+UC3 | Atualizar status da tarefa
 
 ### Requisitos não-funcionais:
 
 Identificador do requisito   | Nome do requisito
 -----------------------------|---------------------
-RF1 | Tempo de resposta inferior a 2s por requisição
-RF2 | Segurança dos dados conforme LGPD
-RF3 | Conectividade com banco de dados sem falhas
+RF1 | Usabilidade
+RF2 | Desempenho
+RF3 | Armazenamento de dados
+RF4 | Interface intuitiva
 
 ## 3 - Tipos de teste
 
 Os seguintes testes serão realizados:
-- Teste de interface de usuário;
-- Teste de API;
-- Teste de carga;
-- Teste de segurança;
-- Teste de persistência de dados.
+- Teste de integração;
+- Teste de sistema;
+- Teste de unidade;
+- Teste de aceitação;
+- Teste de regressão;
+- Teste de desempenho;
 
-### 3.1 - Teste de Métodos da API
+## 3.1 - Teste de Integração
 
-Objetivo: Verificar se os endpoints retornam os resultados esperados.
+Objetivo: Avaliar a interação entre módulos do sistema.
 
 Técnica: ( ) manual  (x) automática
 
-Estágio do teste: Unidade (x)  Integração ( )  Sistema ( )  Aceitação ( )
+Estágio do teste: Unidade ( )  Integração (x)  Sistema ( )  Aceitação ( )
 
 Abordagem do teste: Caixa branca (x)  Caixa preta (x)
 
 Responsável: Equipe de desenvolvimento
 
-### 3.2 - Persistência de Dados
+## 3.2 - Teste de Sistema
 
-Objetivo: Garantir que os dados não se perdem após falhas no sistema.
+Objetivo: Verificar se o sistema atende aos requisitos funcionais e não funcionais.
 
 Técnica: (x) manual  (x) automática
 
@@ -77,9 +77,45 @@ Abordagem do teste: Caixa preta (x)
 
 Responsável: Equipe de testes
 
-### 3.3 - Teste de Performance
+## 3.3 - Teste de Unidade
 
-Objetivo: Avaliar tempo de resposta da API.
+Objetivo: Verificar o funcionamento correto de cada componente individualmente.
+
+Técnica: ( ) manual  (x) automática
+
+Estágio do teste: Unidade (x)  Integração ( )  Sistema ( )  Aceitação ( )
+
+Abordagem do teste: Caixa branca (x)
+
+Responsável: Equipe de desenvolvimento
+
+## 3.4 - Teste de Aceitação
+
+Objetivo: Garantir que o sistema atende às necessidades do usuário final.
+
+Técnica: (x) manual  (x) automática
+
+Estágio do teste: Unidade ( )  Integração ( )  Sistema ( )  Aceitação (x)
+
+Abordagem do teste: Caixa preta (x)
+
+Responsável: Equipe de testes
+
+## 3.5 - Teste de Regressão
+
+Objetivo: Garantir que novas modificações não impactam funcionalidades existentes.
+
+Técnica: ( ) manual  (x) automática
+
+Estágio do teste: Unidade (x)  Integração (x)  Sistema (x)  Aceitação ( )
+
+Abordagem do teste: Caixa preta (x)
+
+Responsável: Equipe de QA
+
+## 3.6 - Teste de Desempenho
+
+Objetivo: Avaliar tempo de resposta e escalabilidade do sistema.
 
 Técnica: ( ) manual  (x) automática
 
@@ -89,39 +125,27 @@ Abordagem do teste: Caixa preta (x)
 
 Responsável: Equipe de QA
 
-### 3.4 - Teste de Segurança
-
-Objetivo: Avaliar a segurança da API contra ataques.
-
-Técnica: ( ) manual  (x) automática
-
-Estágio do teste: Unidade ( )  Integração ( )  Sistema (x)  Aceitação ( )
-
-Abordagem do teste: Caixa preta (x)
-
-Responsável: Especialista em segurança
-
 ## 4 - Recursos
 
 ### 4.1 - Ambiente de teste - Software e Hardware
 
-- Servidor com Node.js e banco de dados PostgreSQL
-- Ferramentas: Postman, JMeter, Selenium
-- Ambiente cloud para testes escaláveis
+- Código em Python, utilizando local Storage
+- Ferramentas: Pytest, tkinker, Io, Unittest
 
 ### 4.2 - Ferramenta de teste
 
-- Postman para testes de API
-- JMeter para testes de carga
-- OWASP ZAP para testes de segurança
+- Pytest para testes em geral
+- Unittest para testes unitários
+- tkinker para simular uma interface
+- Io para gerar um input de string
 
 ## 5 - Cronograma
 
 Tipo de teste      | Duração | Data de início | Data de término
 -------------------|---------|----------------|-----------------
-Planejamento      | 1 semana | dd/mm/aaaa     | dd/mm/aaaa
-Desenvolvimento   | 2 semanas | dd/mm/aaaa     | dd/mm/aaaa
-Implementação    | 1 semana | dd/mm/aaaa     | dd/mm/aaaa
-Execução        | 2 semanas | dd/mm/aaaa     | dd/mm/aaaa
-Avaliação       | 1 semana | dd/mm/aaaa     | dd/mm/aaaa
+Planejamento      | 1 semana | 10/03/2025     | 16/03/2025
+Desenvolvimento   | 1 semana | 17/03/2025     | 23/03/2025
+Implementação    | 2 dias | 24/03/2025     | 25/03/2025
+Execução        | 2 dias | 26/03/2025     | 27/03/2025
+Avaliação       | 1 dia | 27/03/2025     | 27/03/2025
 
