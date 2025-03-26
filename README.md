@@ -10,7 +10,7 @@
 
    Data    | Versão |    Descrição   | Autor(a)
 -----------|--------|----------------|-----------------
-27/03/2025 |  1.0   | Release inicial | Pedro, Danyllo, Matheus, Davi, Higor, Flávio, Gabriel, Igor
+27/03/2025 |  1.0   | Release inicial | Pedro, Danyllo, Matheus, Davi, Higor, Flávio
 
 
 ## 1 - Introdução
@@ -143,9 +143,12 @@ Responsável: Equipe de QA
 
 Tipo de teste      | Duração | Data de início | Data de término
 -------------------|---------|----------------|-----------------
-Planejamento      | 1 semana | 10/03/2025     | 16/03/2025
-Desenvolvimento   | 1 semana | 17/03/2025     | 23/03/2025
-Implementação    | 2 dias | 24/03/2025     | 25/03/2025
-Execução        | 2 dias | 26/03/2025     | 27/03/2025
-Avaliação       | 1 dia | 27/03/2025     | 27/03/2025
+Levantamento de requisitos | 1 dia | 10/03/2025      | 10/03/2025 
+Planejamento      | 3 dias | 11/03/2025     | 13/03/2025
+Desenvolvimento   | 1 semana | 13/03/2025     | 20/03/2025
+Plano de testes    | 3 dias | 21/03/2025     | 23/03/2025
+Casos de testes    | 2 dias | 24/03/2025     | 25/03/2025
+Testes automatizados | 2 dias | 25/03/2025     | 26/03/2025
+Documentação       | 1 dia | 26/03/2025     | 26/03/2025
+Apresentação       | 1 dia | 27/03/2025     | 27/03/2025
 
