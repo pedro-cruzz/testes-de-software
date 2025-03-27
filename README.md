@@ -10,7 +10,7 @@
 
    Data    | Versão |    Descrição   | Autor(a)
 -----------|--------|----------------|-----------------
-27/03/2025 |  1.0   | Release inicial | Pedro, Danyllo, Matheus, Davi, Higor, Flávio
+27/03/2025 |  1.0   | Release inicial | Pedro Cruz, Danyllo Aniceto, Matheus Barbosa, Davi Amaral, Higor OLiveira, Flávio Barbieri
 
 
 ## 1 - Introdução
